@@ -3,6 +3,7 @@
 Im Repository sind die Lösungen der Aufgabe WPM T 9.2 zu finden.
 Im ersten Teil der Aufgabe werden fünf Fragen mittels einer Datenanalyse der öffentlichen Daten der Seattle Public Library beantwortet (MALIS 19.3 WPM_T9.2 Frage 1-5). Die Fragen beziehen sich ausschließlich auf die Checkouts. Die heruntergeladenen Datenpakete wurden mittels der URL begrenzt, beziehungsweise definiert.
 Die Fragen lauteten:
+
 "Welcher Titel hat den höchsten Checkoutwert in dem Jahr 2018?" (MALIS 19.3 WPM_T9.2 Frage 1)
 
 "Wie oft wurde Harry Potter 2018 ausgeliehen?" & "Wie oft wurde in welchem Monat "Harry Potter und der Stein der Weisen" ausgeliehen und wie oft insgesamt?" (MALIS 19.3 T9.2 Frage 2 und 3)
