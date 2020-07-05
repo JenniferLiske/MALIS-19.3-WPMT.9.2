@@ -14,3 +14,19 @@ Die Fragen lauteten:
 
 
 Im zweiten Teil wird mittels eines Skriptes ein Datensatz bereinigt. Die Musterlösung ist aus Terminal in eine txt Datei kopiert (Lösung MALIS 19.3 WPM T9.2.2.txt). Der bereinigte Datensatz enthält nur noch die Jahre und ISSNs (2020-05-23-Dates_and_ISSNs.tsv). Als Ausgangspunkt wurden die, in der Aufgabenstellung, genannten Befehle benutzt. Da sed bei MacOS nicht als Mittel zum Ignorieren der Groß- und Kleinschreibung funktioniert, wurden tr benutzt (siehe Library Carpentry Lesson). 
+Bevor ich ein Skript geschrieben habe, habe ich die Befehle zunächst alle im Terminal einzeln ausgeführt. Daher befindet sich im Repositorium die Zwischenlösung. Dies half mir vor allem, um die einzelnen Schritte zu kontrollieren und schneller die Fehler finden zu können.
+
+Zur Bearbeitung der Datei wird zunächst auf dem Desktop der Ordner wget angesteuert, in dem sich nur die Datei 2020-05-23-Article_list_dirty.tsv befindet. 
+
+Um die entsprechenden Spalten herauszufiltern wird der Befehl *cut -f* genutzt, so kann das herausschneiden auf die Spalten spezifiziert werden. Die benötigten Spalten sind 5 und 12. Daraus wird eine neue Datei, cut.tsv, erstellt, da die weiteren Informationen nicht mehr nötig sind, wird im Folgenden die Datei cut.tsv genutzt. Zur besseren Orientierung wurden die Dateien nach dem erfolgten Schritt benannt,
+
+Mit *grep -E '\d{4}-\d{3}'* wird die vorhandene Datei noch einmal gefiltert. Es bleiben nur die Zeilen über in denen auch das Format „vier Zeichen Bindestrich drei Zeichen“ erfüllt wird. Da am Ende mehrerer ISSNs ein x steht und diese in der Lösung enthalten sind, reichen nach dem Bindestrich drei Zahlen. Im gleichen Befehl wird wieder eine neue Datei erstellt: grep.tsv. 
+
+In der Datei grep.tsv wird ISSN sowohl groß als auch klein geschrieben. Daher wird mit dem Befehl *tr [:upper:] [:lower:]* in der neu erstellten Datei tr.tsv alles klein geschrieben.
+
+In der Lösung ist ISSN nicht dem Code vorgestellt. Deshalb wird mit dem Befehl *tr -ds 'issn: ' ''*  issn: durch nichts ersetzt und fällt so gesehen aus der Lösung raus. Es wird eine neue Datei erstellt, trr.tsv, die den Vorsatz ISSN nicht mehr enthält.
+
+Mit dem Befehl *sort -n < trr.tsv > sort.tsv* sortiere ich die erste Spalte, in diesem Fall die ISSNs, nach Größe. So können im nächsten Schritt die Doppelungen extrahiert werden. Im zweiten Teil des Befehls wird wieder eine neue Datei erstellt: sort.tsv.
+
+Als letzten Befehl wird *uniq < sort.tsv > 2020-05-23-Dates_and_ISSNs.tsv* genutzt. So werden Doppelungen entfernt. Der Lösung entsprechend wird die Datei „2020-05-23-Dates_and_ISSNs.tsv“ erstellt und als Lösung im Repositorium hochgeladen.
+
