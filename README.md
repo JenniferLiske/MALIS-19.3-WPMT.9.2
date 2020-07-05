@@ -30,3 +30,5 @@ Mit dem Befehl *sort -n < trr.tsv > sort.tsv* sortiere ich die erste Spalte, in 
 
 Als letzten Befehl wird *uniq < sort.tsv > 2020-05-23-Dates_and_ISSNs.tsv* genutzt. So werden Doppelungen entfernt. Der Lösung entsprechend wird die Datei „2020-05-23-Dates_and_ISSNs.tsv“ erstellt und als Lösung im Repositorium hochgeladen.
 
+Der Aufgabenstellung entsprechend wird, nachdem kontrolliert wurde, dass die Befehle funktionieren, im nano-Editor das Skript geschrieben. Es werden alle Befehle untereinander eingefügt und als Shell-Datei gespeichert. Dieses kann über das Terminal ausgeführt werden.
+
